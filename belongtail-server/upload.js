@@ -3,12 +3,13 @@ const fs = require("fs");
 
 module.exports = function upload(req, res) {
   var form = new IncomingForm();
-
+  let fileName = '';
   form.on("file", (field, file) => {
     // Do something with the file
     // e.g. save it to the database
     // you can access it using file.path
     // console.log("uploaded file: ", file.path);
+    fileName = file.name;
     const dest = './public/' + file.name;
     // destination.txt will be created or overwritten by default.
     fs.createReadStream(file.path).pipe(fs.createWriteStream(dest));
@@ -18,7 +19,9 @@ module.exports = function upload(req, res) {
     // });
   });
   form.on("end", () => {
-    res.json();
+    // res.body = {"fileName": fileName};
+    // res.json();
+    res.send({"fileName": fileName});
   });
   form.parse(req);
 };

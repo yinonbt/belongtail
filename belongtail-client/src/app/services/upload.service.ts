@@ -5,13 +5,22 @@ import {
   HttpEventType,
   HttpResponse
 } from "@angular/common/http";
-import { Subject, Observable } from 'rxjs';
-const url = "http://localhost:8000/upload";
+import { Subject, Observable, BehaviorSubject } from 'rxjs';
+import { FileData } from '../models/file-data';
+import { environment } from 'src/environments/environment';
+
+const url = `${environment.apiUrl}upload`;
 
 @Injectable({
   providedIn: "root"
 })
 export class UploadService {
+  private uploadedImageSubject = new BehaviorSubject<string>(null);
+
+  get uploadedImage$(): Observable<string> {
+    return this.uploadedImageSubject;
+  }
+  
   constructor(private http: HttpClient) {}
 
   public upload(
@@ -45,7 +54,10 @@ export class UploadService {
         } else if (event instanceof HttpResponse) {
           // Close the progress-stream if we get an answer form the API
           // The upload is complete
-          console.log('completion event: ', event);
+          const res: HttpResponse<FileData> = event as HttpResponse<FileData>;
+          console.log('file: ', res.body.fileName);
+          const imageUrl = `${environment.apiUrl}` + res.body.fileName;          
+          this.uploadedImageSubject.next(imageUrl);
           progress.complete();
         }
       });
