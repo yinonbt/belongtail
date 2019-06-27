@@ -45,6 +45,7 @@ export class UploadService {
         } else if (event instanceof HttpResponse) {
           // Close the progress-stream if we get an answer form the API
           // The upload is complete
+          console.log('completion event: ', event);
           progress.complete();
         }
       });
