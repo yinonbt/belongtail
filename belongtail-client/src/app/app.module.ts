@@ -16,9 +16,10 @@ import { CommonModule } from "@angular/common";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { UploadComponent } from './components/upload/upload.component';
 import { DialogComponent } from './components/dialog/dialog.component';
+import { PersonalDetailsComponent } from './components/personal-details/personal-details.component';
 
 @NgModule({
-  declarations: [AppComponent, UploadComponent, DialogComponent],
+  declarations: [AppComponent, UploadComponent, DialogComponent, PersonalDetailsComponent],
   imports: [
     CommonModule,
     BrowserModule,
