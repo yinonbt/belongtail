@@ -1,6 +1,7 @@
 const express = require("express");
 var path = require('path');
 const upload = require("./upload");
+const router = require("./routes/routes");
 const crud = require("./crud");
 const cors = require("cors");
 
@@ -16,6 +17,10 @@ server.use(cors(corsOptions));
 var dir = path.join(__dirname, 'public');
 
 server.use(express.static(dir));
+
+server.use(express.json());
+
+server.use(router);
 
 server.post("/upload", upload);
 

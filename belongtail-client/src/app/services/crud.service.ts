@@ -11,7 +11,7 @@ export class CrudService {
   constructor(private http: HttpClient) { }
 
   insert(personalDetails: PersonalDetails): Promise<PersonalDetails> {
-    const url = `${environment.apiUrl}insert`;
+    const url = `${environment.apiUrl}api/v1/posts`;
     const httpOptions = {
       headers: new HttpHeaders({
         "Content-Type": "application/json"
