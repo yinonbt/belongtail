@@ -1,11 +1,11 @@
-import PersonsContainer from "../db/posts";
+import PersonsContainer from "../db/persons";
 import moment from "moment";
 class postsController {
-  static getPosts(req, res, next) {
+  static getPersons(req, res, next) {
     return res.send(PersonsContainer.persons);
   }
 
-  static createPost(req, res, next) {
+  static createPerson(req, res, next) {
     const newId = parseInt(PersonsContainer.lastId) + 1;
     PersonsContainer.lastId = newId;
     console.log("request body: ", req.body);
