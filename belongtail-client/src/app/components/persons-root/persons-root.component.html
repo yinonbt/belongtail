@@ -1,0 +1,11 @@
+<div>
+  <button
+    mat-raised-button
+    color="primary"
+    class="add-files-btn"
+    (click)="setNewPerson()"
+  >
+    New Person
+  </button>
+  <app-person-edit *ngIf="personSelected" [person]="personSelected" style="width:40%"></app-person-edit>
+</div>

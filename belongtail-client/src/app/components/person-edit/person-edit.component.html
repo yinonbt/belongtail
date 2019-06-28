@@ -1,0 +1,32 @@
+<mat-card>
+  <form class="person-edit-form" [formGroup]="personFormGroup">
+    <mat-form-field class="example-full-width">
+      <input
+        matInput
+        placeholder="First Name"
+        formControlName="formControlFirstName"
+      />
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input
+        matInput
+        placeholder="Last Name"
+        formControlName="formControlLastName"
+      />
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input
+        matInput
+        placeholder="Gender"
+        formControlName="formControlGender"
+      />
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input
+        matInput
+        placeholder="Picture Url"
+        formControlName="formControlPicUrl"
+      />
+    </mat-form-field>
+  </form>
+</mat-card>

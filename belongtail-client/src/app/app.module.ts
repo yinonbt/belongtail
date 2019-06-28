@@ -10,27 +10,42 @@ import {
   MatListModule,
   MatProgressBarModule
 } from "@angular/material";
-
+import { MatInputModule } from "@angular/material/input";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatCardModule } from "@angular/material/card";
 import { AppComponent } from "./app.component";
 import { CommonModule } from "@angular/common";
 import { FlexLayoutModule } from "@angular/flex-layout";
-import { UploadComponent } from './components/upload/upload.component';
-import { DialogComponent } from './components/dialog/dialog.component';
-import { PersonalDetailsComponent } from './components/personal-details/personal-details.component';
+import { UploadComponent } from "./components/upload/upload.component";
+import { DialogComponent } from "./components/dialog/dialog.component";
+import { PersonsRootComponent } from "./components/persons-root/persons-root.component";
+import { PersonEditComponent } from "./components/person-edit/person-edit.component";
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 
 @NgModule({
-  declarations: [AppComponent, UploadComponent, DialogComponent, PersonalDetailsComponent],
+  declarations: [
+    AppComponent,
+    UploadComponent,
+    DialogComponent,
+    PersonsRootComponent,
+    PersonEditComponent
+  ],
   imports: [
     CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
     MatIconModule,
     MatButtonModule,
+    MatCardModule,
     MatDialogModule,
     MatListModule,
     MatProgressBarModule,
+    MatInputModule,
+    MatFormFieldModule,
     FlexLayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

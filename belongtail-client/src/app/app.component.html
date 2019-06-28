@@ -1,9 +1,19 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>Welcome to {{ title }}!</h1>
-</div>
-<app-personal-details></app-personal-details>
-<app-upload></app-upload>
-<div style="width: 400px; height: 400px; background-color: red" *ngIf="uploadedImage$ | async">
-  <img [src]="uploadedImage$ | async" style="max-height:100%; max-width:100%;"/>
+<div class="app-container">
+  <div style="text-align:center">
+    <h1>Welcome to {{ title }}!</h1>
+  </div>
+  <div class="tmp-container">
+    <app-upload></app-upload>
+    <div
+      style="width: 400px; height: 400px; background-color: red"
+      *ngIf="uploadedImage$ | async"
+    >
+      <img
+        [src]="uploadedImage$ | async"
+        style="max-height:100%; max-width:100%;"
+      />
+    </div>
+  </div>
+  <app-persons-root></app-persons-root>
 </div>
