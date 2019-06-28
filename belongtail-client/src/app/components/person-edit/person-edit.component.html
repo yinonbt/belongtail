@@ -1,5 +1,9 @@
 <mat-card>
-  <form class="person-edit-form" [formGroup]="personFormGroup">
+  <form
+    class="person-edit-form"
+    [formGroup]="personFormGroup"
+    (ngSubmit)="savePerson()"
+  >
     <mat-form-field class="example-full-width">
       <input
         matInput
@@ -28,5 +32,13 @@
         formControlName="formControlPicUrl"
       />
     </mat-form-field>
+    <button
+      type="submit"
+      [disabled]="personFormGroup.invalid"
+      mat-raised-button
+      color="primary"
+    >
+      Save
+    </button>
   </form>
 </mat-card>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Person } from "src/app/models/person";
+import { CrudService } from 'src/app/services/crud.service';
 
 @Component({
   selector: "app-persons-root",
@@ -8,18 +9,23 @@ import { Person } from "src/app/models/person";
 })
 export class PersonsRootComponent implements OnInit {
   personSelected: Person;
-  constructor() {}
+  constructor(private crudService: CrudService) {}
 
   ngOnInit() {}
 
   setNewPerson() {
     this.personSelected = {
-      id: -1,
-      firstName: "",
-      lastName: "",
-      gender: 1,
-      picUrl: "",
+      id: null,
+      firstName: null,
+      lastName: null,
+      gender: null,
+      picUrl: null,
       date: null
     };
+  }
+
+  onSavePersonRequested(person: Person) {
+    console.log('person sended to service: ', person);
+    this.crudService.insert(person);
   }
 }

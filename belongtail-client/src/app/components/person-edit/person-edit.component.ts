@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges } from "@angular/core";
+import { Component, OnInit, Input, OnChanges, Output, EventEmitter } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Person } from 'src/app/models/person';
 
@@ -9,7 +9,7 @@ import { Person } from 'src/app/models/person';
 })
 export class PersonEditComponent implements OnInit, OnChanges {
   @Input() person: Person;
-
+  @Output() savePersonRequested = new EventEmitter<Person>();
   personFormGroup: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {}
@@ -23,5 +23,19 @@ export class PersonEditComponent implements OnInit, OnChanges {
       formControlGender: [this.person.gender, Validators.required],
       formControlPicUrl: [this.person.picUrl, Validators.required]
     });
+    this.personFormGroup.reset();
+  }
+
+  savePerson() {
+    const personUpdated: Person = {
+      id: null,
+      firstName: this.personFormGroup.get('formControlFirstName').value,
+      lastName: this.personFormGroup.get('formControlLastName').value,
+      gender: this.personFormGroup.get('formControlGender').value,
+      picUrl: this.personFormGroup.get('formControlPicUrl').value,
+      date: null
+    };
+    this.personFormGroup.reset();
+    this.savePersonRequested.emit(personUpdated);
   }
 }

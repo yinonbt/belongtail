@@ -7,5 +7,5 @@
   >
     New Person
   </button>
-  <app-person-edit *ngIf="personSelected" [person]="personSelected" style="width:40%"></app-person-edit>
+  <app-person-edit *ngIf="personSelected" [person]="personSelected" (savePersonRequested)="onSavePersonRequested($event)"></app-person-edit>
 </div>
