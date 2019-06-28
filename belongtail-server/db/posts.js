@@ -1,2 +1,2 @@
-const posts = [];
-export default posts;
+const personsContainer = {lastId: 0, persons: []};
+export default personsContainer;

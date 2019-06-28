@@ -1,28 +1,29 @@
-import Posts from "../db/posts";
+import PersonsContainer from "../db/posts";
 import moment from "moment";
 class postsController {
   static getPosts(req, res, next) {
-    return res.json({
-      message: "List of all posts",
-      posts: Posts
-    });
+    return res.send(PersonsContainer.persons);
   }
-static createPost(req, res, next) {
-    const newId = parseInt(Posts.length) + 1;
-    console.log('request body: ', req.body);
+
+  static createPost(req, res, next) {
+    const newId = parseInt(PersonsContainer.lastId) + 1;
+    PersonsContainer.lastId = newId;
+    console.log("request body: ", req.body);
     const { title, body } = req.body;
     const newPost = {
       id: newId,
-      title,
-      body,
-      created_at: moment.utc().format()
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      gender: req.body.gender,
+      picUrl: req.body.picUrl,
+      date: moment.utc().format()
     };
-    Posts.push(newPost);
+    PersonsContainer.persons.push(newPost);
     return res.status(200).json({
-      message: "created a new post"
+      message: "created a new person"
     });
   }
-static getOnePost(req, res, next) {
+  static getOnePost(req, res, next) {
     const { id } = req.params;
     const post = Posts.find(onePost => onePost.id == id);
     if (post) {

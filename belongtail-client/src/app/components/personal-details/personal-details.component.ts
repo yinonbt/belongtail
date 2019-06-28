@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { CrudService } from "src/app/services/crud.service";
-import { PersonalDetails } from "src/app/models/personal-details";
+import { Person } from "src/app/models/person";
 
 @Component({
   selector: "app-personal-details",
@@ -13,7 +13,7 @@ export class PersonalDetailsComponent implements OnInit {
   ngOnInit() {}
 
   insert() {
-    const personalDetails: PersonalDetails = {
+    const personalDetails: Person = {
       id: -1,
       firstName: "test1",
       lastName: "test2",
