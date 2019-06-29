@@ -41,7 +41,11 @@
       multiple
     />
     <div class="pic-container">
-      <div class="img-container"></div>
+      <div class="img-container">
+        <div *ngIf="!person.picUrl" class="no-img-container">
+          <span>No image uploaded.</span>
+        </div>
+      </div>
       <div class="btn-set-container">
         <button mat-raised-button color="primary">
           Set Pic
