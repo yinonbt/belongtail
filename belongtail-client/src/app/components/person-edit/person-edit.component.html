@@ -26,13 +26,28 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field class="example-full-width">
+    <mat-form-field class="example-full-width" style="display: none">
       <input
         matInput
         placeholder="Picture Url"
         formControlName="formControlPicUrl"
       />
     </mat-form-field>
+    <input
+      type="file"
+      #file
+      style="display: none"
+      (change)="onFilesAdded()"
+      multiple
+    />
+    <div class="pic-container">
+      <div class="img-container"></div>
+      <div class="btn-set-container">
+        <button mat-raised-button color="primary">
+          Set Pic
+        </button>
+      </div>
+    </div>
     <button
       type="submit"
       [disabled]="personFormGroup.invalid"
