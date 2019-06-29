@@ -1,6 +1,14 @@
-import { Component, OnInit, Input, OnChanges, Output, EventEmitter } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  Input,
+  OnChanges,
+  Output,
+  EventEmitter
+} from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { Person } from 'src/app/models/person';
+import { Person } from "src/app/models/person";
+import { Gender } from "src/app/models/gender";
 
 @Component({
   selector: "app-person-edit",
@@ -11,8 +19,11 @@ export class PersonEditComponent implements OnInit, OnChanges {
   @Input() person: Person;
   @Output() savePersonRequested = new EventEmitter<Person>();
   personFormGroup: FormGroup;
+  genders: Gender[];
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder) {
+    this.genders = [{ id: 1, desc: "Male" }, { id: 2, desc: "Female" }];
+  }
 
   ngOnInit() {}
 
@@ -29,10 +40,10 @@ export class PersonEditComponent implements OnInit, OnChanges {
   savePerson() {
     const personUpdated: Person = {
       id: null,
-      firstName: this.personFormGroup.get('formControlFirstName').value,
-      lastName: this.personFormGroup.get('formControlLastName').value,
-      gender: this.personFormGroup.get('formControlGender').value,
-      picUrl: this.personFormGroup.get('formControlPicUrl').value,
+      firstName: this.personFormGroup.get("formControlFirstName").value,
+      lastName: this.personFormGroup.get("formControlLastName").value,
+      gender: this.personFormGroup.get("formControlGender").value,
+      picUrl: this.personFormGroup.get("formControlPicUrl").value,
       date: null
     };
     this.personFormGroup.reset();

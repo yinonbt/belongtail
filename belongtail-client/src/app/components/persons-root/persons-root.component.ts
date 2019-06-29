@@ -25,7 +25,6 @@ export class PersonsRootComponent implements OnInit {
   }
 
   onSavePersonRequested(person: Person) {
-    console.log('person sended to service: ', person);
     this.crudService.insert(person);
   }
 }

@@ -13,6 +13,7 @@ import {
 import { MatInputModule } from "@angular/material/input";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatCardModule } from "@angular/material/card";
+import { MatSelectModule } from "@angular/material/select";
 import { AppComponent } from "./app.component";
 import { CommonModule } from "@angular/common";
 import { FlexLayoutModule } from "@angular/flex-layout";
@@ -42,6 +43,7 @@ import { ReactiveFormsModule, FormsModule } from "@angular/forms";
     MatProgressBarModule,
     MatInputModule,
     MatFormFieldModule,
+    MatSelectModule,
     FlexLayoutModule,
     HttpClientModule,
     FormsModule,
