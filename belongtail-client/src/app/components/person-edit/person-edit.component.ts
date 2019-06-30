@@ -37,9 +37,11 @@ export class PersonEditComponent implements OnInit, OnChanges, OnDestroy {
   ngOnInit() {
     this.uploadedImageSubscription = this.uploadService.uploadedImage$.subscribe(
       picUrl => {
-        this.person.picUrl = picUrl;
-        this.personFormGroup.controls["formControlPicUrl"].setValue(picUrl);
-        this.personFormGroup.controls["formControlPicUrl"].markAsDirty();
+        if (picUrl) {
+          this.person.picUrl = picUrl;
+          this.personFormGroup.controls["formControlPicUrl"].setValue(picUrl);
+          this.personFormGroup.controls["formControlPicUrl"].markAsDirty();
+        }
       }
     );
   }
