@@ -22,6 +22,7 @@ import { DialogComponent } from "./components/dialog/dialog.component";
 import { PersonsRootComponent } from "./components/persons-root/persons-root.component";
 import { PersonEditComponent } from "./components/person-edit/person-edit.component";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
+import { PersonsListComponent } from './components/persons-list/persons-list.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ReactiveFormsModule, FormsModule } from "@angular/forms";
     UploadComponent,
     DialogComponent,
     PersonsRootComponent,
-    PersonEditComponent
+    PersonEditComponent,
+    PersonsListComponent
   ],
   imports: [
     CommonModule,

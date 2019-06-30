@@ -1,2 +1,15 @@
-div {
+.person-root-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  .add-files-btn {
+    margin-bottom: 10px;
+  }
+  .list-edit-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
 }

@@ -1,4 +1,4 @@
-<div>
+<div class="person-root-container">
   <button
     mat-raised-button
     color="primary"
@@ -7,5 +7,12 @@
   >
     New Person
   </button>
-  <app-person-edit *ngIf="personSelected" [person]="personSelected" (savePersonRequested)="onSavePersonRequested($event)"></app-person-edit>
+  <div class="list-edit-container">
+    <app-persons-list></app-persons-list>
+    <app-person-edit
+      *ngIf="personSelected"
+      [person]="personSelected"
+      (savePersonRequested)="onSavePersonRequested($event)">
+    ></app-person-edit>
+  </div>
 </div>
