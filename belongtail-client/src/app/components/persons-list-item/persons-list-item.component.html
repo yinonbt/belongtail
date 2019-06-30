@@ -1,0 +1,11 @@
+<button mat-stroked-button>
+  <div class="inside-button">
+    <div class="textual-container">
+      <span>{{ person.firstName }}</span>
+      <span>{{ person.lastName }}</span>
+    </div>
+    <div class="img-container">
+      <img [src]="person.picUrl" style="max-height:100%; max-width:100%;" />
+    </div>
+  </div>
+</button>

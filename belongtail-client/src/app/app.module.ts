@@ -23,6 +23,7 @@ import { PersonsRootComponent } from "./components/persons-root/persons-root.com
 import { PersonEditComponent } from "./components/person-edit/person-edit.component";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { PersonsListComponent } from './components/persons-list/persons-list.component';
+import { PersonsListItemComponent } from './components/persons-list-item/persons-list-item.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { PersonsListComponent } from './components/persons-list/persons-list.com
     DialogComponent,
     PersonsRootComponent,
     PersonEditComponent,
-    PersonsListComponent
+    PersonsListComponent,
+    PersonsListItemComponent
   ],
   imports: [
     CommonModule,

@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Person } from "src/app/models/person";
 import { CrudService } from 'src/app/services/crud.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: "app-persons-root",
@@ -9,9 +10,15 @@ import { CrudService } from 'src/app/services/crud.service';
 })
 export class PersonsRootComponent implements OnInit {
   personSelected: Person;
-  constructor(private crudService: CrudService) {}
+  persons$: Observable<Person[]>;
 
-  ngOnInit() {}
+  constructor(private crudService: CrudService) {
+    this.persons$ = crudService.persons$;
+  }
+
+  ngOnInit() {
+    this.crudService.getAll();
+  }
 
   setNewPerson() {
     this.personSelected = {

@@ -1,0 +1,11 @@
+mat-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100%;
+    overflow: auto;
+    app-persons-list-item {
+        margin-bottom: 10px;
+    }
+}

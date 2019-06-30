@@ -33,21 +33,17 @@
         formControlName="formControlPicUrl"
       />
     </mat-form-field>
-    <input
-      type="file"
-      #file
-      style="display: none"
-      (change)="onFilesAdded()"      
-    />
+    <input type="file" #file style="display: none" (change)="onFilesAdded()" />
     <div class="pic-container">
       <div class="img-container">
         <div *ngIf="!person.picUrl" class="no-img-container">
           <span>No image uploaded.</span>
         </div>
-        <img *ngIf="person.picUrl"
-        [src]="person.picUrl"
-        style="max-height:100%; max-width:100%;"
-      />
+        <img
+          *ngIf="person.picUrl"
+          [src]="person.picUrl"
+          style="max-height:100%; max-width:100%;"
+        />
       </div>
       <div class="btn-set-container">
         <button mat-raised-button color="primary" (click)="openUploadDialog()">
