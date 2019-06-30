@@ -37,8 +37,7 @@
       type="file"
       #file
       style="display: none"
-      (change)="onFilesAdded()"
-      multiple
+      (change)="onFilesAdded()"      
     />
     <div class="pic-container">
       <div class="img-container">
@@ -47,7 +46,7 @@
         </div>
       </div>
       <div class="btn-set-container">
-        <button mat-raised-button color="primary">
+        <button mat-raised-button color="primary" (click)="openUploadDialog()">
           Set Pic
         </button>
       </div>

@@ -4,7 +4,8 @@ import {
   Input,
   OnChanges,
   Output,
-  EventEmitter
+  EventEmitter,
+  ViewChild
 } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Person } from "src/app/models/person";
@@ -16,6 +17,7 @@ import { Gender } from "src/app/models/gender";
   styleUrls: ["./person-edit.component.scss"]
 })
 export class PersonEditComponent implements OnInit, OnChanges {
+  @ViewChild("file") file;
   @Input() person: Person;
   @Output() savePersonRequested = new EventEmitter<Person>();
   personFormGroup: FormGroup;
@@ -35,6 +37,10 @@ export class PersonEditComponent implements OnInit, OnChanges {
       formControlPicUrl: [this.person.picUrl, Validators.required]
     });
     this.personFormGroup.reset();
+  }
+
+  openUploadDialog() {
+    this.file.nativeElement.click();
   }
 
   savePerson() {
