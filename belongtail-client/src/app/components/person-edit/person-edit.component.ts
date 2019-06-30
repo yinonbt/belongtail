@@ -55,7 +55,7 @@ export class PersonEditComponent implements OnInit, OnChanges, OnDestroy {
       formControlGender: [this.person.gender, Validators.required],
       formControlPicUrl: [this.person.picUrl, Validators.required]
     });
-    this.personFormGroup.reset();
+    //this.personFormGroup.reset();
   }
 
   openUploadDialog() {

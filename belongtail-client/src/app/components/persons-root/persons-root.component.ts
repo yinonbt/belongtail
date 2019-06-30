@@ -34,4 +34,8 @@ export class PersonsRootComponent implements OnInit {
   onSavePersonRequested(person: Person) {
     this.crudService.insert(person);
   }
+
+  onPersonSelectRequest(person: Person) {
+    this.personSelected = person;
+  }
 }

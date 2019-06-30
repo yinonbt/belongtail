@@ -1,3 +1,9 @@
 <mat-card>
-  <app-persons-list-item *ngFor="let person of persons" [person]="person" class="persons-list-item"></app-persons-list-item>
+  <app-persons-list-item
+    *ngFor="let person of persons"
+    [person]="person"
+    [personSelected]="personSelected"
+    (personSelectRequest)="onPersonSelectRequest($event)"
+    class="persons-list-item"
+  ></app-persons-list-item>
 </mat-card>

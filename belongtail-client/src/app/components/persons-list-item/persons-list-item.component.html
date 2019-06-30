@@ -1,4 +1,6 @@
-<button mat-stroked-button>
+<button mat-stroked-button (click)="onClick()" [ngClass]="{
+  'person-selected': personSelected?.id === person.id
+}">
   <div class="inside-button">
     <div class="textual-container">
       <span>{{ person.firstName }}</span>

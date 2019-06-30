@@ -10,6 +10,8 @@
   <div class="list-edit-container">
     <app-persons-list
       [persons]="persons$ | async"
+      [personSelected]="personSelected"
+      (personSelectRequest)="onPersonSelectRequest($event)"
       class="list-edit-contained"
     ></app-persons-list>
     <mat-card class="list-edit-contained">
