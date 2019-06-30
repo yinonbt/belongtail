@@ -10,6 +10,7 @@ export class PersonsListComponent implements OnInit {
   @Input() persons: Person[];
   @Input() personSelected: Person;
   @Output() personSelectRequest = new EventEmitter<Person>();
+  @Output() personDeleteRequest = new EventEmitter<Person>();
   
   constructor() { }
 
@@ -18,5 +19,9 @@ export class PersonsListComponent implements OnInit {
 
   onPersonSelectRequest(person: Person) {
     this.personSelectRequest.emit(person);
+  }
+
+  onPersonDeleteRequest(person: Person) {
+    this.personDeleteRequest.emit(person);
   }
 }

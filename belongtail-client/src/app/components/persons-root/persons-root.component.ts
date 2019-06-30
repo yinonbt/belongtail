@@ -9,7 +9,7 @@ import { Observable } from "rxjs";
   styleUrls: ["./persons-root.component.scss"]
 })
 export class PersonsRootComponent implements OnInit {
-  personSelected: Person;
+  personSelected: Person = null;
   persons$: Observable<Person[]>;
 
   constructor(private crudService: CrudService) {
@@ -45,5 +45,10 @@ export class PersonsRootComponent implements OnInit {
 
   onPersonSelectRequest(person: Person) {
     this.personSelected = person;
+  }
+
+  onPersonDeleteRequest(person: Person) {
+    this.personSelected = null;
+    this.crudService.delete(person);
   }
 }

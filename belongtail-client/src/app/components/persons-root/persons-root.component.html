@@ -12,11 +12,12 @@
       [persons]="persons$ | async"
       [personSelected]="personSelected"
       (personSelectRequest)="onPersonSelectRequest($event)"
+      (personDeleteRequest)="onPersonDeleteRequest($event)"
       class="list-edit-contained"
     ></app-persons-list>
     <mat-card class="list-edit-contained">
       <app-person-edit
-        *ngIf="personSelected"
+        *ngIf="personSelected != null"
         [person]="personSelected"
         (savePersonRequested)="onSavePersonRequested($event)"
       ></app-person-edit>

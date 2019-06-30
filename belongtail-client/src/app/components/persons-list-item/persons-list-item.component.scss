@@ -5,11 +5,23 @@ button {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    .textual-container {
+    .delete-textual-container {
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: flex-start;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      .delete-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 12px;
+      }
+      .textual-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
     }
     .img-container {
       width: 120px;
@@ -18,5 +30,5 @@ button {
   }
 }
 .person-selected {
-    background-color: lightblue;
+  background-color: lightblue;
 }

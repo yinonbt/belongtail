@@ -5,6 +5,6 @@ router.get("/api/v1/posts", postController.getPersons);
 router.post("/api/v1/posts", postController.createPerson);
 router.get("/api/v1/posts/:id", postController.getOnePost);
 router.put("/api/v1/posts/:id", postController.updatePerson);
-router.delete("/api/v1/posts/:id", postController.deletePost);
+router.delete("/api/v1/posts/:id", postController.deletePerson);
 export default router;
 module.exports = router;

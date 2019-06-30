@@ -56,4 +56,18 @@ export class CrudService {
         })
       )
   }
+
+  delete(person: Person):void {
+    const url = `${environment.apiUrl}api/v1/posts/${person.id}`;
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json"
+      })
+    };
+    this.http
+      .delete<Person[]>(url, httpOptions).subscribe(result => {
+        console.log('all persons after delete: ', result);
+        this.personsSubject.next(result);
+      });
+  }
 }

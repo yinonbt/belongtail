@@ -52,19 +52,16 @@ class postsController {
       });
     }
   }
-  static deletePost(req, res, next) {
+  static deletePerson(req, res, next) {
     let { id } = req.params;
-    const findPost = Posts.find(post => {
-      return post.id == id;
+    const findPerson =  PersonsContainer.persons.find(person => {
+      return person.id == id;
     });
-    if (findPost) {
-      const newPosts = Posts.filter(post => {
-        return post !== findPost;
+    if (findPerson) {
+      PersonsContainer.persons = PersonsContainer.persons.filter(person => {
+        return person !== findPerson;
       });
-      res.status(200).json({
-        message: "post successfully deleted",
-        Posts: newPosts
-      });
+      res.status(200).send(PersonsContainer.persons);
     } else {
       res.status(400).json({
         error: "could not delete a post"
