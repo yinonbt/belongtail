@@ -10,7 +10,7 @@ class postsController {
     PersonsContainer.lastId = newId;
     console.log("request body: ", req.body);
     const { title, body } = req.body;
-    const newPost = {
+    const newPerson = {
       id: newId,
       firstName: req.body.firstName,
       lastName: req.body.lastName,
@@ -18,10 +18,8 @@ class postsController {
       picUrl: req.body.picUrl,
       date: moment.utc().format()
     };
-    PersonsContainer.persons.push(newPost);
-    return res.status(200).json({
-      message: "created a new person"
-    });
+    PersonsContainer.persons.push(newPerson);
+    return res.status(200).send(newPerson);
   }
   static getOnePost(req, res, next) {
     const { id } = req.params;
@@ -37,15 +35,17 @@ class postsController {
       });
     }
   }
-  static updatePost(req, res, next) {
+  static updatePerson(req, res, next) {
     const { id } = req.params;
-    const post = Posts.find(updatePost => updatePost.id == id);
-    if (post) {
-      (post.title = req.body.title), (post.body = req.body.body);
-      return res.status(201).json({
-        message: "successfully updated",
-        updatePost: post
-      });
+    const person = PersonsContainer.persons.find(
+      updatePerson => updatePerson.id == id
+    );
+    if (person) {
+      (person.firstName = req.body.firstName),
+        (person.lastName = req.body.lastName),
+        (person.gender = req.body.gender),
+        (person.picUrl = req.body.picUrl);
+      return res.status(201).send(person);
     } else {
       res.status(400).json({
         error: "post cannot be updated"

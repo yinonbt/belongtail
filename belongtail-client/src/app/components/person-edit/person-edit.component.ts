@@ -75,12 +75,12 @@ export class PersonEditComponent implements OnInit, OnChanges, OnDestroy {
 
   savePerson() {
     const personUpdated: Person = {
-      id: null,
+      id: this.person.id,
       firstName: this.personFormGroup.get("formControlFirstName").value,
       lastName: this.personFormGroup.get("formControlLastName").value,
       gender: this.personFormGroup.get("formControlGender").value,
       picUrl: this.personFormGroup.get("formControlPicUrl").value,
-      date: null
+      date: this.person.date
     };
     //this.personFormGroup.reset();
     this.savePersonRequested.emit(personUpdated);

@@ -25,7 +25,7 @@ export class CrudService {
     });
   }
 
-  insert(personalDetails: Person): Promise<Person> {
+  insert(person: Person): Observable<Person> {
     const url = `${environment.apiUrl}api/v1/posts`;
     const httpOptions = {
       headers: new HttpHeaders({
@@ -33,12 +33,27 @@ export class CrudService {
       })
     };
     return this.http
-      .post<Person>(url, personalDetails, httpOptions)
+      .post<Person>(url, person, httpOptions)
+      .pipe(
+        tap(o => {
+          this.getAll();
+        })
+      );
+  }
+
+  update(person: Person): Observable<Person> {
+    const url = `${environment.apiUrl}api/v1/posts/${person.id}`;
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json"
+      })
+    };
+    return this.http
+      .put<Person>(url, person, httpOptions)
       .pipe(
         tap(o => {
           this.getAll();
         })
       )
-      .toPromise();
   }
 }

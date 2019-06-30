@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Person } from "src/app/models/person";
-import { CrudService } from 'src/app/services/crud.service';
-import { Observable } from 'rxjs';
+import { CrudService } from "src/app/services/crud.service";
+import { Observable } from "rxjs";
 
 @Component({
   selector: "app-persons-root",
@@ -32,7 +32,15 @@ export class PersonsRootComponent implements OnInit {
   }
 
   onSavePersonRequested(person: Person) {
-    this.crudService.insert(person);
+    if (person.id && person.id > 0) {
+      this.crudService.update(person).subscribe(p => {
+        this.personSelected = p;
+      });
+    } else {
+      this.crudService.insert(person).subscribe(p => {
+        this.personSelected = p;
+      });
+    }
   }
 
   onPersonSelectRequest(person: Person) {

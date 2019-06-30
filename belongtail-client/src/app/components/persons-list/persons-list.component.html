@@ -1,4 +1,5 @@
 <mat-card>
+  <span *ngIf="!persons || persons.length === 0">No items.</span>
   <app-persons-list-item
     *ngFor="let person of persons"
     [person]="person"
