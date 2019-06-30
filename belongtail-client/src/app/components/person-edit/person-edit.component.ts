@@ -39,6 +39,7 @@ export class PersonEditComponent implements OnInit, OnChanges, OnDestroy {
       picUrl => {
         this.person.picUrl = picUrl;
         this.personFormGroup.controls["formControlPicUrl"].setValue(picUrl);
+        this.personFormGroup.controls["formControlPicUrl"].markAsDirty();
       }
     );
   }

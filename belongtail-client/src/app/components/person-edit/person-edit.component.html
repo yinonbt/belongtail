@@ -58,7 +58,7 @@
     </div>
     <button
       type="submit"
-      [disabled]="personFormGroup.invalid"
+      [disabled]="personFormGroup.invalid || personFormGroup.pristine"
       mat-raised-button
       color="primary"
     >
