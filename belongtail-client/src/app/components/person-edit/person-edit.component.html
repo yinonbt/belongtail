@@ -44,6 +44,10 @@
         <div *ngIf="!person.picUrl" class="no-img-container">
           <span>No image uploaded.</span>
         </div>
+        <img *ngIf="person.picUrl"
+        [src]="person.picUrl"
+        style="max-height:100%; max-width:100%;"
+      />
       </div>
       <div class="btn-set-container">
         <button mat-raised-button color="primary" (click)="openUploadDialog()">
