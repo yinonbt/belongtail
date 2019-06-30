@@ -1,16 +1,19 @@
-.inside-button {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  .textual-container {
+button {
+  width: 100%;
+  .inside-button {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
-    align-items: flex-start;
-  }
-  .img-container {
+    align-items: center;
+    .textual-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .img-container {
       width: 120px;
       height: 90px;
+    }
   }
 }
