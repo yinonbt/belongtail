@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Person } from "src/app/models/person";
 import { CrudService } from "src/app/services/crud.service";
 import { Observable } from "rxjs";
+import { UploadService } from 'src/app/services/upload.service';
 
 @Component({
   selector: "app-persons-root",
@@ -12,7 +13,7 @@ export class PersonsRootComponent implements OnInit {
   personSelected: Person = null;
   persons$: Observable<Person[]>;
 
-  constructor(private crudService: CrudService) {
+  constructor(private crudService: CrudService, private uploadService: UploadService) {
     this.persons$ = crudService.persons$;
   }
 
@@ -21,6 +22,9 @@ export class PersonsRootComponent implements OnInit {
   }
 
   setNewPerson() {
+    // assign null to uploaded pic Observable in order new instance of edit component will not retrieve last uploaded pic URL
+    this.uploadService.reset();
+    
     this.personSelected = {
       id: null,
       firstName: null,

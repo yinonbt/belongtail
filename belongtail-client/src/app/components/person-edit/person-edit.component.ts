@@ -58,6 +58,8 @@ export class PersonEditComponent implements OnInit, OnChanges, OnDestroy {
       formControlGender: [this.person.gender, Validators.required],
       formControlPicUrl: [this.person.picUrl, Validators.required]
     });
+    console.log('pic url of new person: ', this.person.picUrl);
+
     //this.personFormGroup.reset();
   }
 

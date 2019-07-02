@@ -23,6 +23,10 @@ export class UploadService {
   
   constructor(private http: HttpClient) {}
 
+  public reset() {
+    this.uploadedImageSubject.next(null);
+  }
+
   public upload(
     files: Set<File>
   ): { [key: string]: { progress: Observable<number> } } {
