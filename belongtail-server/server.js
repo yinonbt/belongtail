@@ -2,7 +2,6 @@ const express = require("express");
 var path = require('path');
 const upload = require("./upload");
 const router = require("./routes/routes");
-const crud = require("./crud");
 const cors = require("cors");
 
 const server = express();
